@@ -1,0 +1,185 @@
+/** 
+	fu-treeToolbar
+	auth : dengdeng    2017/8/10
+	descript: 文件预览组件样式 
+**/
+@font-face {
+    font-family: 'fu-iconfont';  /* project id 595913 */
+    src: url('//at.alicdn.com/t/font_595913_s0bjl4b0nslzbyb9.eot');
+    src: url('//at.alicdn.com/t/font_595913_s0bjl4b0nslzbyb9.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_595913_s0bjl4b0nslzbyb9.woff') format('woff'),
+    url('//at.alicdn.com/t/font_595913_s0bjl4b0nslzbyb9.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_595913_s0bjl4b0nslzbyb9.svg#fu-iconfont') format('svg');
+}
+.fu-iconfont{
+    font-family:"fu-iconfont" !important;
+    font-size:12px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+    color: #ffc446;
+}
+.fu-iconfont-disable{
+    cursor: not-allowed;
+    color: #ffffff;
+}
+html{
+	background: #3B3734;
+}
+.fu-filePreview {
+	background: #3B3734;
+	width: 100%;
+	min-height: 100%;
+	color: #b7afa5;
+	.fu-filePreview-top{
+		position: fixed;
+		z-index: 600001;
+		left: 0px;
+		top: 0px;
+		width: 100%;
+		background: rgba(0, 0, 0, 0.8);
+		.fu-filePreview-info {
+			width: 1210px;
+			height: 50px;
+			margin: 0 auto;
+			.fileName {
+				font-size: 18px;
+				line-height: 50px;
+				width: 800px;
+				display: inline-block;
+				text-align: center;
+				float: left;
+			}
+			.info-left{
+				width: 200px;
+				display: inline-block;
+				text-align: left;
+				float: left;
+				.imgIcon {
+					font-size: 28px;
+					line-height: 50px;
+					i{
+						font-size: 24px;
+					}
+				}
+				.imgName {
+					line-height: 50px;
+					color: #ffc446;
+				}
+			}
+			.info-right{
+				width: 200px;
+				display: inline-block;
+				text-align: right;
+				float: right;
+				ul{
+					list-style: none;
+					padding: 0;
+					margin: 0;
+					li{
+						float: right;
+						display: inline-block;
+						line-height: 50px;
+						width: 50px;
+						i{
+							font-size: 24px;
+						}
+						&:hover {
+							color: #ffc446;
+							transition:color 0.1s ease-in;
+							cursor: pointer;
+						}
+					}  
+				}
+			}  
+		}
+	}
+	.fu-filePreview-content {
+		width: 100%;
+		padding-top: 60px;
+		margin: 0 auto;
+		.fu-filePreview-img {
+			width: 900px;
+			margin: 0 auto;
+			text-align: center;
+			background: transparent;
+			ul{
+				list-style: none;
+				padding: 0;
+				li{
+					position: relative;
+					i{
+						color: rgb(59, 55, 52);
+						display: none;
+						position: absolute;
+						top: 10px;
+						left: 10px;
+					}
+					img{
+						width: 100%;
+						padding: 2px 0;
+						user-drag: none;
+					}
+				}
+			}
+		}
+	}
+	.fu-filePreview-toolbar {
+		position: fixed;
+		z-index: 600001;
+		bottom: 10px;
+		width: 100%;
+		height: 40px;
+		ul {
+			width: 200px;
+			height: 40px;
+			list-style: none;
+			padding: 0;
+			margin: 0 auto;
+			background: #ffc446; 
+			li {
+				display: inline-block;
+				float: left;
+				width: 50px;
+				height: 40px;
+				text-align: center;
+				line-height: 36px;
+				-webkit-user-select: none;  /* Chrome 49+ */
+				-moz-user-select: none;     /* Firefox 43+ */
+				-ms-user-select: none;      /* No support yet */
+				user-select: none;          /* Likely future */
+				i {
+					font-size: 24px;
+					font-style: normal;
+					color: #000;
+				}
+				&:hover {
+					background: #FFB90F;
+					transition:background-color 0.2s ease-in;
+					cursor: pointer;
+					i{
+						color: #000;
+						transition:color 0.2s ease-in;
+					}
+				}
+			}
+			.pre,.next{
+				&:hover {
+					background: #ffc446;
+				}
+			}
+		}
+	}
+	.fu-filePreview-loading{
+		display: none;
+		position: fixed;
+		top: 100px;
+		z-index: 600002;
+		width: 100%;
+		padding-top: 400px; 
+		h2{
+			color: #ffc446;
+			text-align: center;
+		}
+	}
+}

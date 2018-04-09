@@ -1,49 +1,48 @@
 {
-    "name": "fu-filePreview",
-    "version": "1.0.0",
-    "description": "A set of UI components for Fund Management System",
-    "main": "index.js",
-    "scripts": {
-      "start": "webpack-dev-server --open",
-      "dev": "webpack --mode development --watch --progress --display-modules --colors --display-reasons",
-      "build": "webpack --mode production",
-      "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "fu-filePreview",
+  "version": "1.0.0",
+  "description": "A set of UI components for Fund Management System",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --open",
+    "dev": "webpack --mode development --watch --progress --display-modules --colors --display-reasons",
+    "build": "webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "dengdeng",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-import": "^1.6.7",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^0.28.10",
+    "html-webpack-plugin": "^3.0.6",
+    "less": "^3.0.1",
+    "less-loader": "^4.0.5",
+    "style-loader": "^0.20.2",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.13",
+    "webpack-dev-server": "^3.1.1"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "es6-promise": "^4.2.4",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "proxy": {
+    "/v2": {
+      "target": "https://api.douban.com",
+      "changeOrigin": true
     },
-    "author": "dengdeng",
-    "license": "ISC",
-    "devDependencies": {
-      "babel-cli": "^6.26.0",
-      "babel-core": "^6.26.0",
-      "babel-loader": "^7.1.4",
-      "babel-plugin-import": "^1.6.7",
-      "babel-preset-env": "^1.6.1",
-      "babel-preset-react": "^6.24.1",
-      "clean-webpack-plugin": "^0.1.19",
-      "css-loader": "^0.28.10",
-      "html-webpack-plugin": "^3.0.6",
-      "less": "^3.0.1",
-      "less-loader": "^4.0.5",
-      "style-loader": "^0.20.2",
-      "url-loader": "^1.0.1",
-      "webpack": "^4.1.1",
-      "webpack-cli": "^2.0.13",
-      "webpack-dev-server": "^3.1.1"
-    },
-    "dependencies": {
-      "axios": "^0.18.0",
-      "es6-promise": "^4.2.4",
-      "react": "^16.2.0",
-      "react-dom": "^16.2.0"
-    },
-    "proxy": {
-      "/v2": {
-        "target": "https://api.douban.com",
-        "changeOrigin": true
-      },
-      "/api/v1": {
-        "target": "http://capi.douyucdn.cn",
-        "changeOrigin": true
-      }
+    "/api/v1": {
+      "target": "http://capi.douyucdn.cn",
+      "changeOrigin": true
     }
   }
-  
+}
