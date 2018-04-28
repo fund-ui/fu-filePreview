@@ -1,0 +1,23 @@
+{
+  "name": "fu-filePreview",
+  "description": "A set of UI components for Fund Management System",
+  "main": "dist/filePreview.js",
+  "authors": [
+    "turkyden"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "es5",
+    "filePreview",
+    "component"
+  ],
+  "homepage": "https://github.com/fund-ui/fu-filePreview",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

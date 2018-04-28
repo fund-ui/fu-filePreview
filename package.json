@@ -1,5 +1,5 @@
 {
-  "name": "filepreview",
+  "name": "fu-filePreview",
   "version": "1.0.0",
   "description": "A set of UI components for Fund Management System",
   "main": "dist/filePreview.js",
@@ -9,7 +9,7 @@
     "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "dengdeng",
+  "author": "turkyden",
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.26.0",
