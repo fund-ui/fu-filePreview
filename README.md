@@ -41,7 +41,7 @@ myFilePreview.init()
 
 ```
 
-### react component 组件化构建
+### react 组件化构建
 
 ``` js
 
