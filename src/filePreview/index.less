@@ -23,11 +23,12 @@
     cursor: not-allowed;
     color: #ffffff;
 }
-html{
-	background: #3B3734;
+*{
+	margin: 0;
+	padding: 0;
 }
 .fu-filePreview {
-	background: #3B3734;
+	background: #2C2C2C;
 	width: 100%;
 	min-height: 100%;
 	color: #b7afa5;
@@ -99,7 +100,6 @@ html{
 		padding-top: 60px;
 		margin: 0 auto;
 		.fu-filePreview-img {
-			width: 900px;
 			margin: 0 auto;
 			text-align: center;
 			background: transparent;
@@ -116,9 +116,12 @@ html{
 						left: 10px;
 					}
 					img{
-						width: 100%;
 						padding: 2px 0;
 						user-drag: none;
+						height: 1200px;
+					}
+					img:not([src]) {
+						visibility: hidden;
 					}
 				}
 			}

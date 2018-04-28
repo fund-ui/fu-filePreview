@@ -1,8 +1,8 @@
 {
-  "name": "fu-filePreview",
+  "name": "filepreview",
   "version": "1.0.0",
   "description": "A set of UI components for Fund Management System",
-  "main": "index.js",
+  "main": "dist/filePreview.js",
   "scripts": {
     "start": "webpack-dev-server --open",
     "dev": "webpack --mode development --watch --progress --display-modules --colors --display-reasons",
@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "dengdeng",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
@@ -32,8 +32,10 @@
   "dependencies": {
     "axios": "^0.18.0",
     "es6-promise": "^4.2.4",
+    "jquery": "^3.3.1",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "vanilla-lazyload": "^8.7.1"
   },
   "proxy": {
     "/v2": {
