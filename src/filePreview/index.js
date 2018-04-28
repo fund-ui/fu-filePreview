@@ -62,13 +62,15 @@ export default class FilePreview {
     init(){
         this._lazyload();
         this._setXY();
-        this._changeImgSize();
+        this._onChangeSize();
+        this._onDownLoad();
+        this._onClose();
     }
     // 渲染图片
     _renderImg() {
         let str = '';
         for (let i in this.config.fileSrcArr) {
-            str += `<li><img class='my-photo' data-src=${this.config.fileSrcArr[i]} alt="图片1" /><i>1</i></li>`;
+            str += `<li><img id=${i} class='my-photo' data-src=${this.config.fileSrcArr[i]} alt="图片1" /><i>1</i></li>`;
         }
         return str;
     }
@@ -76,7 +78,8 @@ export default class FilePreview {
     _lazyload() {
         new LazyLoad({
             callback_load: (img) => {
-                //console.log(img)
+                var imgId = parseInt(img.id) + 1;
+                $('.imgCurrentPage').text(imgId)
             }
         });
     }
@@ -86,10 +89,12 @@ export default class FilePreview {
         img.onload = () => {
             //获取宽高比例
             let nWidth, nHeight;
-            if (img.naturalWidth) { // 现代浏览器
+            if (img.naturalWidth) {
+                // 现代浏览器
                 nWidth = img.naturalWidth;
                 nHeight = img.naturalHeight;
-            } else { // IE6/7/8
+            } else {
+                // IE6/7/8
                 nWidth = img.width;
                 nHeight = img.height;
             }
@@ -98,8 +103,8 @@ export default class FilePreview {
             $('img').css('height', nHeight);
         }
     }
-    // 交互-放大缩小值在900px到1200px之间
-    _changeImgSize() {
+    // 成员方法-放大缩小功能
+    _onChangeSize() {
         var cunrrentH = $('img').height();
         $('.large').on('click', () => {
             if (cunrrentH < 1500) {
@@ -109,7 +114,6 @@ export default class FilePreview {
             }
             $('img').css('width', cunrrentH / this.config.x_y)
             $('img').css('height', cunrrentH)
-            console.log(this.config.x_y)
         })
         $('.narrow').on('click', () => {
             if (cunrrentH > 1200) {
@@ -117,8 +121,24 @@ export default class FilePreview {
             } else {
                 cunrrentH = cunrrentH
             }
-            $('img').css('width', cunrrentH/this.config.x_y)
+            $('img').css('width', cunrrentH / this.config.x_y)
             $('img').css('height', cunrrentH)
+        })
+    }
+    // 成员方法-绑定文件下载事件
+    _onDownLoad() {
+        let downLoadDOM = document.getElementById('fu_filePreview_download');
+        downLoadDOM.addEventListener('click', (event) => {
+            location.href = this.config.fileDownloadUrl;
+        })
+    }
+    // 成员方法-绑定关闭预览事件
+    _onClose() {
+        let closeDOM = document.getElementById('fu_filePreview_close');
+        closeDOM.addEventListener('click', (event) => {
+            window.opener = null;
+            window.open('', '_self');
+            window.close();
         })
     }
 }

@@ -5,8 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
     mode: 'development',
     entry: {
-        index: './src/index.js',
-        filePreview: './src/filePreview/index.js',
+        filePreview: './src/index.js',
     },
     plugins: [
         new CleanWebpackPlugin([
@@ -15,7 +14,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             title: '文件预览组件',
-            chunks: ['index'],
+            chunks: ['filePreview'],
             template: 'index.html'
         })
     ],
