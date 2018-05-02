@@ -11,6 +11,13 @@
     <div id="app"></div>
 </body>
 <script>
+    var mock = [
+        "http://mm.chinasareview.com/wp-content/uploads/2017a/07/21/01.jpg",
+        "http://mm.chinasareview.com/wp-content/uploads/2017a/07/21/02.jpg",
+        "http://mm.chinasareview.com/wp-content/uploads/2017a/07/21/03.jpg",
+        "http://mm.chinasareview.com/wp-content/uploads/2017a/07/21/04.jpg",
+        "http://mm.chinasareview.com/wp-content/uploads/2017a/07/21/05.jpg",
+    ]
     var myFilePreview = new FilePreview({
         fileId: '875685863324321',
         fileName: 'Doker实践指南.pdf',
@@ -22,7 +29,7 @@
             for (let index = 0; index < fileTotalPage; index++) {
                 fileSrcArr.push(item + (index + 1));
             }
-            return fileSrcArr;
+            return mock;
         })(371)
     });
     myFilePreview.renderDOM(document.getElementById("app"));

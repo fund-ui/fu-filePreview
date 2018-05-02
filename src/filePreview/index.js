@@ -1,6 +1,8 @@
 import './index.less';
+import default_Img from './default.png';
 import $ from 'jquery';
 import LazyLoad from 'vanilla-lazyload';
+//import LazyLoad from './lazyLoad';
 
 export default class FilePreview {
     constructor(option){
@@ -70,7 +72,7 @@ export default class FilePreview {
     _renderImg() {
         let str = '';
         for (let i in this.config.fileSrcArr) {
-            str += `<li><img id=${i} class='my-photo' data-src=${this.config.fileSrcArr[i]} alt="图片1" /><i>1</i></li>`;
+            str += `<li><img id=${i} class='my-photo' src=${default_Img} data-src=${this.config.fileSrcArr[i]} alt="图片1" /><i>1</i></li>`;
         }
         return str;
     }
@@ -82,6 +84,8 @@ export default class FilePreview {
                 $('.imgCurrentPage').text(imgId)
             }
         });
+        // let mylazyload = new LazyLoad();
+        // mylazyload.init();
     }
     // 获取初始宽高比
     _setXY() {
@@ -99,8 +103,8 @@ export default class FilePreview {
                 nHeight = img.height;
             }
             this.config.x_y = nHeight / nWidth;
-            $('img').css('width', nWidth);
-            $('img').css('height', nHeight);
+            $('img').css('width', 1200/this.config.x_y);
+            $('img').css('height', 1200);
         }
     }
     // 成员方法-放大缩小功能
