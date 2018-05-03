@@ -111,7 +111,7 @@ export default class FilePreview {
     _onChangeSize() {
         var cunrrentH = $('img').height();
         $('.large').on('click', () => {
-            if (cunrrentH < 1500) {
+            if (cunrrentH < 1800) {
                 cunrrentH = cunrrentH + 100
             } else {
                 cunrrentH = cunrrentH

@@ -74,3 +74,34 @@ ReactDOM.render(
     document.getElementById("app"))
 
 ```
+
+## cshtml
+
+``` html
+@{
+    ViewBag.Title = "FilePreview";
+    Layout = null;
+}
+<title>@ViewBag.FileName</title>
+<link rel="icon" type="image/png" href="/Images/faviconCEIAM.ico">
+<div id="app"></div>
+<script src="~/Scripts/fu-filePreview/dist/filePreview.js"></script>
+<script>
+    var myFilePreview = new FilePreview({
+        fileId: "@ViewBag.FileId",
+        fileName: "@ViewBag.FileName",
+        fileTotalPage: "@ViewBag.TotalPage",
+        fileDownloadUrl: "./DownLoadByFileId?fileId=" + "@ViewBag.FileId",
+        fileSrcArr: (function (fileTotalPage) {
+            var item = './Preview?fileId=' + "@ViewBag.FileId" + "&page=";
+            var fileSrcArr = new Array();
+            for (let index = 0; index < fileTotalPage; index++) {
+                fileSrcArr.push(item + (index + 1));
+            }
+            return fileSrcArr;
+        })("@ViewBag.TotalPage")
+    });
+    myFilePreview.renderDOM(document.getElementById("app"));
+    myFilePreview.init();
+</script>
+```

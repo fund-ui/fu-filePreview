@@ -19,7 +19,7 @@
         fileSrcArr: (function (fileTotalPage) {
             var item = 'http://10.1.1.21:4000/FileManage/Preview?fileId=5f438842-03c0-460c-8062-9623bf156a4e&page='
             var fileSrcArr = new Array();
-            for (let index = 0; index < fileTotalPage; index++) {
+            for (var index = 0; index < fileTotalPage; index++) {
                 fileSrcArr.push(item + (index + 1));
             }
             return fileSrcArr;
