@@ -1,5 +1,5 @@
 import './index.less';
-import default_Img from './default.png';
+import default_Img from '../asset/default.png';
 import $ from 'jquery';
 import LazyLoad from 'vanilla-lazyload';
 //import LazyLoad from './lazyLoad';
