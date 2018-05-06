@@ -44,7 +44,7 @@ myFilePreview.init()
 
 ### with jquery
 
-```
+```js
     $('#app').filePreview({
         ...
     })
