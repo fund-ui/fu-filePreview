@@ -16,6 +16,7 @@ An ui component designed for file preview
 <script src="https://dufozrddxzwdn.cloudfront.net/2.0.3/fu-filePreview.min.js"></script>
 <script src="https://dufozrddxzwdn.cloudfront.net/2.0.3/fu-filePreview.js"></script>
 ```
+### with pure js
 
 ``` js
 var myFilePreview = new FilePreview({
@@ -41,7 +42,15 @@ myFilePreview.init()
 
 ```
 
-### react 组件化构建
+### with jquery
+
+```
+    $('#app').filePreview({
+        ...
+    })
+```
+
+### with react
 
 ``` js
 
