@@ -1,8 +1,6 @@
 import './index.less';
 import default_Img from '../asset/default.png';
 import $ from 'jquery';
-import LazyLoad from 'vanilla-lazyload';
-//import LazyLoad from './lazyLoad';
 
 export default class FilePreview {
     constructor(option){
@@ -62,11 +60,12 @@ export default class FilePreview {
     }
     // 初始化
     init(){
-        this._lazyload();
         this._setXY();
         this._onChangeSize();
         this._onDownLoad();
         this._onClose();
+        this._lazyload();
+        window.onscroll = this._throttle(this._lazyload, 500, 1000);
     }
     // 渲染图片
     _renderImg() {
@@ -75,17 +74,6 @@ export default class FilePreview {
             str += `<li><img id=${i} class='my-photo' src=${default_Img} data-src=${this.config.fileSrcArr[i]} alt="图片1" /><i>1</i></li>`;
         }
         return str;
-    }
-    // 实例化懒加载插件
-    _lazyload() {
-        new LazyLoad({
-            callback_load: (img) => {
-                var imgId = parseInt(img.id) + 1;
-                $('.imgCurrentPage').text(imgId)
-            }
-        });
-        // let mylazyload = new LazyLoad();
-        // mylazyload.init();
     }
     // 获取初始宽高比
     _setXY() {
@@ -103,13 +91,13 @@ export default class FilePreview {
                 nHeight = img.height;
             }
             this.config.x_y = nHeight / nWidth;
-            $('img').css('width', 1200/this.config.x_y);
-            $('img').css('height', 1200);
+            $('img').css('width', 900);
+            $('img').css('height', 900 * this.config.x_y);
         }
     }
     // 成员方法-放大缩小功能
     _onChangeSize() {
-        var cunrrentH = $('img').height();
+        let cunrrentH = $('img').height();
         $('.large').on('click', () => {
             if (cunrrentH < 1800) {
                 cunrrentH = cunrrentH + 100
@@ -144,5 +132,44 @@ export default class FilePreview {
             window.open('', '_self');
             window.close();
         })
+    }
+    // 成员方法-懒加载
+    _lazyload() {
+        let num = document.getElementsByTagName('img').length;
+        let img = document.getElementsByTagName("img");
+        let n = 0; // 图片加载到的位置，避免每一次从第一张图片开始
+        let seeHeight = window.innerHeight; //可视区域高度
+        let scrollTop = document.documentElement.scrollTop || document.body.scrollTop; // 滚动条距离顶部高度
+        let preLoadHeight = 1200;
+        for (let i = n; i < num; i++) {
+            if ($(img).eq(i).offset().top < seeHeight + scrollTop + preLoadHeight) {
+                console.log($('img').eq(i).offset().top, seeHeight, scrollTop, preLoadHeight);
+                if (img[i].getAttribute("src") == default_Img) {
+                    img[i].src = img[i].getAttribute("data-src");
+                }
+                n = i + 1;
+            }
+        }
+    }
+    // 成员方法-函数节流
+    _throttle(fun, delay, time) {
+        let timeout,
+            startTime = new Date();
+        return function () {
+            let context = this,
+                args = arguments,
+                curTime = new Date();
+            clearTimeout(timeout);
+            // 如果达到了规定的触发时间间隔，触发 handler
+            if (curTime - startTime >= time) {
+                fun.apply(context, args);
+                startTime = curTime;
+                // 没达到触发间隔，重新设定定时器
+            } else {
+                timeout = setTimeout(function () {
+                    fun.apply(context, args);
+                }, delay);
+            }
+        };
     }
 }

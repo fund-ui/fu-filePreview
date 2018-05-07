@@ -95,7 +95,7 @@ ReactDOM.render(
         fileSrcArr: (function (fileTotalPage) {
             var item = './Preview?fileId=' + "@ViewBag.FileId" + "&page=";
             var fileSrcArr = new Array();
-            for (let index = 0; index < fileTotalPage; index++) {
+            for (var index = 0; index < fileTotalPage; index++) {
                 fileSrcArr.push(item + (index + 1));
             }
             return fileSrcArr;
