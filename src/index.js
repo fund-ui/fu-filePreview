@@ -1,4 +1,5 @@
-import FilePreview from './filePreview';
+import FilePreview from './es';
+export default FilePreview;
 
 // 暴露给全局对象
-window.FilePreview = FilePreview;
+window.FuFilePreview = FilePreview;
