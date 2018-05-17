@@ -1,5 +1,5 @@
 {
-  "name": "fu-filePreview",
+  "name": "fu-filepreview",
   "version": "1.0.0",
   "description": "A set of UI components for Fund Management System",
   "main": "dist/filePreview.js",
@@ -9,7 +9,7 @@
     "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "turkyden",
+  "author": "Turkyden",
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -31,12 +31,7 @@
     "webpack-dev-server": "^3.1.1"
   },
   "dependencies": {
-    "axios": "^0.18.0",
-    "es6-promise": "^4.2.4",
-    "jquery": "^3.3.1",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "vanilla-lazyload": "^8.7.1"
+    "jquery": "^3.3.1"
   },
   "proxy": {
     "/v2": {

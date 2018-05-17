@@ -20,7 +20,7 @@ An ui component designed for file preview
 
 ``` js
 var myFilePreview = new FilePreview({
-    fileName: '小邓体检.pdf',
+    fileName: 'Docker快速入门.pdf',
     totalPage: 100,
     downLoad: 'http://douban-img/hdh/ddjd?fileId=832983hjj',
     print: false,

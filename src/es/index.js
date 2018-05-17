@@ -143,6 +143,7 @@ export default class FilePreview {
         let preLoadHeight = 1200;
         for (let i = n; i < num; i++) {
             if ($(img).eq(i).offset().top < seeHeight + scrollTop + preLoadHeight) {
+                let logs = preLoadHeight;
                 console.log($('img').eq(i).offset().top, seeHeight, scrollTop, preLoadHeight);
                 if (img[i].getAttribute("src") == default_Img) {
                     img[i].src = img[i].getAttribute("data-src");
