@@ -2,6 +2,12 @@
 
 An ui component designed for file preview
 
+## about
+
+- 使用爬虫爬取文件图片，分类存储
+
+- 搭建服务，进行文件预览
+
 ## usage
 
 ``` html
