@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>
+        文件预览组件
+    </title>
+</head>
+<body>
+    <div id="app"></div>
+<script type="text/javascript" src="filePreview.js"></script></body>
+<script>
+    var myFilePreview = new FuFilePreview({
+        fileId: '875685863324321',
+        fileName: 'Redux指南.pdf',
+        fileTotalPage: 50,
+        fileDownloadUrl: "https://raw.githubusercontent.com/fund-ui/fu-filePreview/d570800bf87a87c464c4a266e58a933b71fb524a/src/asset/redux-in-chinese.pdf",
+        fileSrcArr: (function (fileTotalPage) {
+            var fileSrcArr = new Array();
+            for (var index = 0; index < fileTotalPage; index++) {
+                var item = 'https://github.com/fund-ui/fu-filePreview/blob/master/src/asset/img/' + index + '.jpeg?raw=true';
+                fileSrcArr.push(item);
+            }
+            return fileSrcArr;
+        })(50)
+    });
+    myFilePreview.renderDOM(document.getElementById("app"));
+    myFilePreview.init();
+</script>
+</html>
