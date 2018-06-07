@@ -11,10 +11,7 @@
     <div id="app"></div>
 </body>
 <script>
-    var myFilePreview = new FuFilePreview({
-        fileId: '875685863324321',
-        fileName: 'Redux指南.pdf',
-        fileTotalPage: 50,
+    var test_1 = {
         fileDownloadUrl: "https://ceiammvc.fundadmin.com.cn/FileManage/DownLoadByFileId?fileId=ad954e1e-d7bd-4534-ba6e-c27b7e5a646f",
         fileSrcArr: (function (fileTotalPage) {
             var item = 'https://ceiammvc.fundadmin.com.cn/FileManage/Preview?fileId=ad954e1e-d7bd-4534-ba6e-c27b7e5a646f&page='
@@ -24,6 +21,24 @@
             }
             return fileSrcArr;
         })(371)
+    }
+    var test_2 = {
+        fileDownloadUrl: "",
+        fileSrcArr: (function (fileTotalPage) {
+            var fileSrcArr = new Array();
+            for (var index = 0; index < fileTotalPage; index++) {
+                var item = 'https://github.com/fund-ui/fu-filePreview/blob/master/src/asset/img/' + index + '.jpeg?raw=true';
+                fileSrcArr.push(item);
+            }
+            return fileSrcArr;
+        })(371)
+    }
+    var myFilePreview = new FuFilePreview({
+        fileId: '875685863324321',
+        fileName: 'Redux指南.pdf',
+        fileTotalPage: 50,
+        fileDownloadUrl: test_2.fileDownloadUrl,
+        fileSrcArr: test_2.fileSrcArr
     });
     myFilePreview.renderDOM(document.getElementById("app"));
     myFilePreview.init();
