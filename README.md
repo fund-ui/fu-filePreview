@@ -2,6 +2,8 @@
 
 An ui component designed for file preview
 
+![Demo]('./src/asset/demo.gif')
+
 ## about
 
 - 使用爬虫爬取文件图片，分类存储
