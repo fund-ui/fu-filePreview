@@ -2,7 +2,7 @@
 
 An ui component designed for file preview
 
-![Demo]('./src/asset/demo.gif')
+![Demo]('src/asset/demo.gif')
 
 ## about
 
