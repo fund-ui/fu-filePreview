@@ -4,13 +4,13 @@ An ui component designed for file preview
 
 ![Demo](./src/asset/demo.gif)
 
-## about
+## About
 
 - 使用爬虫爬取文件图片，分类存储
 
 - 搭建服务，进行文件预览
 
-## usage
+## Usage
 
 ``` html
 
@@ -18,13 +18,13 @@ An ui component designed for file preview
 
 ```
 
-### 全局引入
+### Global Import
 
 ```html
 <script src="https://dufozrddxzwdn.cloudfront.net/2.0.3/fu-filePreview.min.js"></script>
 <script src="https://dufozrddxzwdn.cloudfront.net/2.0.3/fu-filePreview.js"></script>
 ```
-### with pure js
+### With JavaScript
 
 ``` js
 var myFilePreview = new FilePreview({
@@ -50,7 +50,7 @@ myFilePreview.init()
 
 ```
 
-### with jquery
+### Jquery
 
 ```js
     $('#app').filePreview({
@@ -58,7 +58,7 @@ myFilePreview.init()
     })
 ```
 
-### with react
+### React
 
 ``` js
 
@@ -92,7 +92,7 @@ ReactDOM.render(
 
 ```
 
-## cshtml
+## In C# .net
 
 ``` html
 @{
@@ -122,7 +122,3 @@ ReactDOM.render(
     myFilePreview.init();
 </script>
 ```
-
-## 发布时间
-
-- 2018/05/08
