@@ -1,128 +1,70 @@
 # FuFilePreview
 
-An ui component designed for file preview
+一个简单好用的类似图片查看的文件预览组件 [示例](https://fund-ui.github.io/fu-filePreview/dist/index.html)
 
 ![Demo](./src/asset/demo.gif)
 
-## Introduction
+## 1. 简介
 
-An ui component designed for file preview
+在文档管理系统中，我们上传 `PDF` `Word` 等格式的文档后，都希望通过在线预览的方式查看这些文档，目前主要有两种方式：
 
-## About
+- 使用 Mozzilia 开源的 `PDF.js` 对文档进行查看，由于该插件使用的是 `HTML5` 技术，所以对低版本浏览器的支持并不友好，而且不支持 `Word`文件的在线预览。
 
-- 使用爬虫爬取文件图片，分类存储
+- 编写服务端将已上传的 `PDF` `Word` 等格式的文档`解析拆分`成图片并存储，在前端预览时只需依次响应图片资源，前端通过类似`图片预加载`的方式，查看图片，达到同样的`文件预览效果`, 改方法浏览器兼容好，但是文件较大时，可能耗费较多的服务器性能去解析文件。
 
-- 搭建服务，进行文件预览
+## 2. 快速开始
 
-## Usage
-
-``` html
-
-<div id="app"></div>
-
-```
-
-### Global Import
-
-```html
-<script src="https://dufozrddxzwdn.cloudfront.net/2.0.3/fu-filePreview.min.js"></script>
-<script src="https://dufozrddxzwdn.cloudfront.net/2.0.3/fu-filePreview.js"></script>
-```
-### With JavaScript
-
-``` js
-var myFilePreview = new FilePreview({
-    fileName: 'Docker快速入门.pdf',
-    totalPage: 100,
-    downLoad: 'http://douban-img/hdh/ddjd?fileId=832983hjj',
-    print: false,
-    share: false,
-    page: [{
-        index: 1,
-        url: 'http://ww4.sinaimg.cn/large/006y8mN6gw1fa5obmqrmvj305k05k3yh.jpg'
-    }, {
-        index: 2,
-        url: 'http://ww1.sinaimg.cn/large/006y8mN6gw1fa7kaed2hpj30sg0l9q54.jpg'
-    }, {
-        index: 3,
-        url: 'http://ww4.sinaimg.cn/large/006y8mN6gw1fa5obmqrmvj305k05k3yh.jpg'
-    }]
-});
-myFilePreview.renderDOM(document.getElementById("app"));
-myFilePreview.init()
-
-
-```
-
-### Jquery
-
-```js
-    $('#app').filePreview({
-        ...
-    })
-```
-
-### React
-
-``` js
-
-import 'fu-filePreview/asset/index.css';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import FilePreview from 'fu-FilePreview';
-
-const handle = () => {
-    return "hi i react"
-}
-class FuFilePreview extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            page: [{...}],
-        };
-    }
-    render() {
-        return (
-            <div className="fu-filePreview">
-                <FilePreview></FilePreview>
-            <div>
-        );
-    }
-}
-
-ReactDOM.render(
-    <FuFilePreview fileName="小邓体检.pdf" totalPage={100} ></FuFilePreview>,
-    document.getElementById("app"))
-
-```
-
-## In C# .net
+该项目已发布 `cdnjs`， 你可直接将插件引入页面使用
 
 ``` html
-@{
-    ViewBag.Title = "FilePreview";
-    Layout = null;
-}
-<title>@ViewBag.FileName</title>
-<link rel="icon" type="image/png" href="/Images/faviconCEIAM.ico">
-<div id="app"></div>
-<script src="~/Scripts/fu-filePreview/dist/filePreview.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fu-filePreview/1.2.0/fu-filePreview.min.js"></script>
+```
+Tips: 这里无需单独引入 `css` 样式文件，因为我们已使用 `webpack` 将样式一并构建进 `javascript` 中
+
+## 3. 安装
+
+当然我们更加推荐你使用 `npm` 与 `nodejs` 在本地进行安装构建
+
+``` npm
+npm install fu-filePreview --save
+```
+
+## 4. 使用
+
+你可以直接新建一个 `html` 页面并实例化组件，推荐`面向对象`的写法配置必备的参数
+
+``` html
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>
+        首页
+    </title>
+</head>
+<body>
+    <div id="app"></div>
+</body>
 <script>
-    var myFilePreview = new FilePreview({
-        fileId: "@ViewBag.FileId",
-        fileName: "@ViewBag.FileName",
-        fileTotalPage: "@ViewBag.TotalPage",
-        fileDownloadUrl: "./DownLoadByFileId?fileId=" + "@ViewBag.FileId",
-        fileSrcArr: (function (fileTotalPage) {
-            var item = './Preview?fileId=' + "@ViewBag.FileId" + "&page=";
-            var fileSrcArr = new Array();
-            for (var index = 0; index < fileTotalPage; index++) {
-                fileSrcArr.push(item + (index + 1));
-            }
-            return fileSrcArr;
-        })("@ViewBag.TotalPage")
+    var myFilePreview = new FuFilePreview({
+        fileId: "wj871287",
+        fileName: "Redux指南.pdf",
+        fileTotalPage: 50,
+        fileDownloadUrl: "https://raw.githubusercontent.com/fund-ui/fu-filePreview/d570800bf87a87c464c4a266e58a933b71fb524a/src/asset/redux-in-chinese.pdf",
+        fileSrcArr: [
+            "https://github.com/fund-ui/fu-filePreview/blob/master/src/asset/img/1.jpeg",
+            "https://github.com/fund-ui/fu-filePreview/blob/master/src/asset/img/2.jpeg",
+            "https://github.com/fund-ui/fu-filePreview/blob/master/src/asset/img/3.jpeg",
+            "https://github.com/fund-ui/fu-filePreview/blob/master/src/asset/img/4.jpeg",
+            ...
+        ]
     });
     myFilePreview.renderDOM(document.getElementById("app"));
     myFilePreview.init();
 </script>
+</html>
 ```
+
+
+
