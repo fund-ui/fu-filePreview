@@ -1,8 +1,12 @@
-# fu-filePreview
+# FuFilePreview
 
 An ui component designed for file preview
 
 ![Demo](./src/asset/demo.gif)
+
+## Introduction
+
+An ui component designed for file preview
 
 ## About
 
