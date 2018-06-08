@@ -17,7 +17,7 @@
 该项目已发布 `cdnjs`， 你可直接将插件引入页面使用
 
 ``` html
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fu-filePreview/1.2.0/fu-filePreview.min.js"></script>
 ```
 Tips: 这里无需单独引入 `css` 样式文件，因为我们已使用 `webpack` 将样式一并构建进 `javascript` 中
 
@@ -25,8 +25,8 @@ Tips: 这里无需单独引入 `css` 样式文件，因为我们已使用 `webpa
 
 当然我们更加推荐你使用 `npm` 与 `nodejs` 在本地进行安装构建
 
-``` npm 
-
+``` npm
+npm install fu-filePreview --save
 ```
 
 
