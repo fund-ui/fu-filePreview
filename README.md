@@ -79,5 +79,41 @@ npm install fu-filePreview --save
 </html>
 ```
 
+## 5. 进阶
+
+如果你使用`现代框架`，可以这样使用我们的组件
+
+### 5.1 React
+
+``` jsx
+import 'fu-filePreview/asset/index.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import FilePreview from 'fu-FilePreview';
+
+class FuFilePreview extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            ...
+        };
+    }
+    render() {
+        return (
+            <div>
+                <FilePreview 
+                    fileName={"Redux指南.pdf"} 
+                    totalPage={100}
+                />
+            <div>
+        );
+    }
+}
+
+ReactDOM.render(
+    <FuFilePreview fileName="Redux指南.pdf" totalPage={100} ></FuFilePreview>,
+    document.getElementById("app"))
+```
+
 
 
