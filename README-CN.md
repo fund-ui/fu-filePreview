@@ -21,12 +21,49 @@
 ```
 Tips: 这里无需单独引入 `css` 样式文件，因为我们已使用 `webpack` 将样式一并构建进 `javascript` 中
 
-## 3.安装
+## 3. 安装
 
 当然我们更加推荐你使用 `npm` 与 `nodejs` 在本地进行安装构建
 
 ``` npm
 npm install fu-filePreview --save
+```
+
+## 4. 使用
+
+你可以直接在页面实例化组件，推荐`面向对象`的写法
+
+``` html
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>
+        首页
+    </title>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    var myFilePreview = new FuFilePreview({
+        fileId: "wj871287",
+        fileName: "Redux指南.pdf",
+        fileTotalPage: 50,
+        fileDownloadUrl: "https://raw.githubusercontent.com/fund-ui/fu-filePreview/d570800bf87a87c464c4a266e58a933b71fb524a/src/asset/redux-in-chinese.pdf",
+        fileSrcArr: [
+            "https://github.com/fund-ui/fu-filePreview/blob/master/src/asset/img/1.jpeg",
+            "https://github.com/fund-ui/fu-filePreview/blob/master/src/asset/img/2.jpeg",
+            "https://github.com/fund-ui/fu-filePreview/blob/master/src/asset/img/3.jpeg",
+            "https://github.com/fund-ui/fu-filePreview/blob/master/src/asset/img/4.jpeg",
+            ...
+        ]
+    });
+    myFilePreview.renderDOM(document.getElementById("app"));
+    myFilePreview.init();
+</script>
+</html>
 ```
 
 
