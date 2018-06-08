@@ -1,4 +1,8 @@
-<p align="center"><a href="https://vuejs.org" target="_blank" rel="noopener noreferrer"><img width="100" src="https://avatars2.githubusercontent.com/u/37236679?s=200&v=4" alt="Vue logo"></a></p>
+<p align="center">
+    <a href="https://vuejs.org" target="_blank" rel="noopener noreferrer">
+        <img width="200" src="https://avatars2.githubusercontent.com/u/37236679?s=200&v=4" alt="Vue logo">
+    </a>
+</p>
 
 <p align="center">
   <a href="https://circleci.com/gh/vuejs/vue/tree/dev"><img src="https://img.shields.io/circleci/project/vuejs/vue/dev.svg" alt="Build Status"></a>
@@ -8,7 +12,6 @@
   <a href="https://www.npmjs.com/package/vue"><img src="https://img.shields.io/npm/l/vue.svg" alt="License"></a>
   <a href="https://chat.vuejs.org/"><img src="https://img.shields.io/badge/chat-on%20discord-7289da.svg" alt="Chat"></a>
   <br>
-  <a href="https://saucelabs.com/u/vuejs"><img src="https://saucelabs.com/browser-matrix/vuejs.svg" alt="Sauce Test Status"></a>
 </p>
 
 # FuFilePreview
