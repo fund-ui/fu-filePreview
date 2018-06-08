@@ -1,8 +1,8 @@
 # FuFilePreview
 
-一个简单好用的类似图片查看的文件预览组件
+一个简单好用的类似图片查看的文件预览组件 [示例](https://fund-ui.github.io/fu-filePreview/dist/index.html)
 
-[示例](https://fund-ui.github.io/fu-filePreview/dist/index.html)
+![Demo](./src/asset/demo.gif)
 
 ## 1. 简介
 
